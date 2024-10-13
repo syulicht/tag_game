@@ -196,7 +196,7 @@ class Enemy extends ParentPlayer{
   constructor(row, line){
     super(row, line);
     this.default_option.rect_style = 'rgba(255, 150, 0, 1)';
-    this.speed = 3;
+    this.speed = 3.5;
     this.heap = new Heap(originalMap);
     this.heap.createHeap();
     this.random = this.heap.vacantVertices[rand(this.heap.vacantVertices.length - 1)];
@@ -213,7 +213,7 @@ class Enemy extends ParentPlayer{
         let dis = Math.hypot(Math.abs(this.x - this.player.x), Math.abs(this.y - this.player.y));
         if((dis < 200 && this.random !== -1) || (dis < 250 && this.random === -1)){
           if(this.random !== -1){
-            this.speed = 6;
+            this.speed = 4.5;
             this.default_option.rect_style = 'rgba(255, 0, 0, 1)';
             this.appearMark();
             this.random = -1;
@@ -227,7 +227,7 @@ class Enemy extends ParentPlayer{
           }
         } else {
           if(this.random === -1){
-            this.speed = 4;
+            this.speed = 3.5;
             this.default_option.rect_style = 'rgba(255, 150, 0, 1)';
             this.random = this.heap.vacantVertices[rand(this.heap.vacantVertices.length - 1)];
             this.track = this.heap.getTrack(this.random, this.id);
